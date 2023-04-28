@@ -58,8 +58,8 @@ jobs:
         run: |
           cd piko/exampleSite && hugo \
             --gc \
-            --minify \--themesDir ../../ \
-            --themesDir 
+            --minify \
+            --themesDir ../../ \
             --baseURL "${{ steps.pages.outputs.base_url }}/"          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
