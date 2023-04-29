@@ -1,10 +1,10 @@
 ---
-baseURL: https://piko-heksagon.netlify.app/
+baseURL: https://molware.org/
 languageCode: en-us
 title: Piko
 theme: piko
 paginate: "9"
-copyright: A template by [Heksagon](https://www.heksagon.net "Your most friendly developer")
+copyright: 
 googleAnalytics: # Enter Google Analytics ie. UA-012345678-9
 enableRobotsTXT: true
 buildDrafts: false
@@ -38,7 +38,7 @@ params:
       SiteVerificationTag: # Bing Site Verification
   env: production
   author: Your Name
-  description: Your website description
+  description: Personal Cybersecurity Blog
   math: false
   images:
   - "/uploads/og.webp"
@@ -60,7 +60,7 @@ params:
   CookieLink: /legal/privacy/#cookies-and-web-beacons
   CookieButton: Cookies Policy
   disableAnchoredHeadings: false
-  contactFormAction: # Get link from https://formsubmit.io or https://fabform.io
+  contactFormAction: https://formsubmit.io/send/b142a794-58da-4376-803e-6d80eaed797d 
   assets:
     disableFingerprinting: false
     favicon: /uploads/zap.svg
