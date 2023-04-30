@@ -1,11 +1,11 @@
 ---
 baseURL: https://molware.org/
 languageCode: en-us
-title: Piko
+title: m0lware Cybersecurity Blog
 theme: piko
 paginate: "9"
 copyright: 
-googleAnalytics: # Enter Google Analytics ie. UA-012345678-9
+googleAnalytics: G-08SNX50RP1 # Enter Google Analytics ie. UA-012345678-9
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
@@ -43,12 +43,12 @@ params:
   images:
   - "/uploads/og.webp"
   label:
-    title: _Piko Title_
+    title: m0lware
     text: Welcome to Piko
-    lightNavIcon: /uploads/sun.svg
-    darkNavIcon: /uploads/zap.svg
-    iconHeight: "35"
-    iconWIdth: "35"
+    lightNavIcon: /uploads/molware.svg
+    darkNavIcon: /uploads/molware.svg
+    iconHeight: "80"
+    iconWIdth: "80"
   comments: true
   mainSections:
   - blog
@@ -74,41 +74,41 @@ params:
     # Hero Section
     disableHeroSection: false
     heroUpperTitle: 
-    heroTitle: Piko
-    heroDescription: Lightweight theme for your every need
+    heroTitle: m0lware 
+    heroDescription: Just another cybersecurity blog
     heroCTAPrimaryText: Blog
     heroCTAPrimaryUrl: "/blog/"
     heroCTASecondaryText: Contact Me
     heroCTASecondaryUrl: "/contact/"
-    heroBackgroundImage: "/uploads/portfolio-1.webp"
+    heroBackgroundImage: "/uploads/server2.jpg"
     # Blog Section
     disableBlogSection: false
     blogTitle: Latest Posts
-    blogDescription: This is my latest blog posts
+    blogDescription: These are my latest blog posts
     seeMoreText: More Posts
     # About Section    
-    disableAboutSection: false
-    aboutTitle: About
-    aboutDescription: Just something about me
-    aboutImgUrl: "/uploads/self.webp"
-    aboutContent: Hi guys. This is where you put something about yourself.
+    disableAboutSection: true
+    # aboutTitle: About
+    # aboutDescription: Just something about me
+    # aboutImgUrl: "/uploads/self.webp"
+    # aboutContent: Hi guys. This is where you put something about yourself.
     # Portfolio Section
-    disablePortfolioSection: false
+    disablePortfolioSection: true
     portfolioTitle: Portfolio
     portfolioDescription: Some of my works
-    portfolio:
-    - imageUrl: /uploads/portfolio-1.webp
-      alt: # image alt for better SEO
-      description: Portfolio One.
-      websiteUrl: #
-    - imageUrl: /uploads/portfolio-2.webp
-      alt: # image alt for better SEO
-      description: Portfolio Two.
-      websiteUrl: #
-    - imageUrl: /uploads/portfolio-3.webp
-      alt: # image alt for better SEO
-      description: Portfolio Three.
-      websiteUrl: #
+    # portfolio:
+    # - imageUrl: /uploads/portfolio-1.webp
+    #   alt: # image alt for better SEO
+    #   description: Portfolio One.
+    #   websiteUrl: #
+    # - imageUrl: /uploads/portfolio-2.webp
+    #   alt: # image alt for better SEO
+    #   description: Portfolio Two.
+    #   websiteUrl: #
+    # - imageUrl: /uploads/portfolio-3.webp
+    #   alt: # image alt for better SEO
+    #   description: Portfolio Three.
+    #   websiteUrl: #
   # Search Options (https://fusejs.io/)
   fuseOpts:
     isCaseSensitive: false
@@ -147,7 +147,7 @@ menus:
   - name: Github
     title: 
     pre: github
-    url: https://github.com/heksagonnet/piko
+    url: https://github.com/molware
     weight: "50"
   search: # Search page's quick links
   - name: Categories
