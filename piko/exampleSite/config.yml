@@ -5,7 +5,8 @@ title: m0lware Cybersecurity Blog
 theme: piko
 paginate: "9"
 copyright: 
-googleAnalytics: G-08SNX50RP1 # Enter Google Analytics ie. UA-012345678-9
+googleAnalytics: G-08SNX50RP1
+# Enter Google Analytics ie. UA-012345678-9
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
