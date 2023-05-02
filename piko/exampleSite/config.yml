@@ -61,7 +61,7 @@ params:
   CookieLink: /legal/privacy/#cookies-and-web-beacons
   CookieButton: Cookies Policy
   disableAnchoredHeadings: false
-  contactFormAction: https://formsubmit.io/send/b142a794-58da-4376-803e-6d80eaed797d 
+  contactFormAction:  https://fabform.io/f/kmpG4ga
   assets:
     disableFingerprinting: false
     favicon: /uploads/molware.svg
