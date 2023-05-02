@@ -145,11 +145,16 @@ menus:
     pre: mail
     url: "/contact"
     weight: "40"
+  - name: Calendar
+    title: Consult
+    pre: calendar
+    url: https://calendly.com/molware/consultation
+    weight: "50"
   - name: Github
     title: 
     pre: github
     url: https://github.com/molware
-    weight: "50"
+    weight: "60"
   search: # Search page's quick links
   - name: Categories
     title: Categories
