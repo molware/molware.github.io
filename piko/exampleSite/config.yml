@@ -64,11 +64,11 @@ params:
   contactFormAction: https://formsubmit.io/send/b142a794-58da-4376-803e-6d80eaed797d 
   assets:
     disableFingerprinting: false
-    favicon: /uploads/zap.svg
-    favicon16x16: /uploads/zap.svg
-    favicon32x32: /uploads/zap.svg
-    apple_touch_icon: /uploads/zap.svg
-    safari_pinned_tab: /uploads/zap.svg
+    favicon: /uploads/molware.svg
+    favicon16x16: /uploads/molware.svg
+    favicon32x32: /uploads/molware.svg
+    apple_touch_icon: /uploads/molware.svg
+    safari_pinned_tab: /uploads/molware.svg
   ShowReadingTime: true
   ShowBreadCrumbs: true
   homepage:

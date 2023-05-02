@@ -30,10 +30,12 @@
       >
       </img
       >{{end}}
-    
+    <!--  Adding a little line break between tags and text. -->
+    <br>
       <div class="post">
         
-        {{ partial "social-share.html" . }} {{- if not (.Param
+        <!-- {{ partial "social-share.html" . }} commenting out share links at the top --> 
+        {{- if not (.Param
         "disableAnchoredHeadings") }} {{- partial "anchored_headings.html"
         .Content -}} {{- else }}{{ .Content }}{{ end }}
       </div>
