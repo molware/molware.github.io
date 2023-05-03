@@ -1,8 +1,8 @@
 ---
 title: Building a Homelab - Pt. 2
-tags: ["homelab","virtualization","proxmox","vmware","virtualbox"]
+tags: ["homelab","virtualization","proxmox","vmware","virtualbox","pfsense","splunk"]
 categories: ["homelab","cyber101"]
-description: "Guide to building a homelab."
+description: "Looking to build your own homelab? This blog post explores the basic setup, adding a firewall for segmentation and control, and even adding a SIEM for log collection and analysis. With scalability options and the ability to add features like IDS and proxy servers, this is the perfect guide for starting your own homelab."
 author: molware
 ShowRelated: true
 ---
@@ -49,4 +49,5 @@ Depending on the hypervisor you selected my go-to would be to replace any Linux 
 
 Now that we have some design ideas, let's go ahead and actually build a lab!
 
-## [See Part 3 &rarr;](/blog/3-building_a_homelab_3) 
+## [Proxmox Homelab &rarr;](/blog/3-Proxmox_Homelab) 
+## [Virtualbox Homelab &rarr;](/blog/4-Virtualbox_Homelab)

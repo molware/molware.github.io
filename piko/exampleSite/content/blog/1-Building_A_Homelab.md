@@ -2,7 +2,7 @@
 title: Building a Homelab - Pt. 1
 tags: ["homelab","virtualization","proxmox","vmware","virtualbox"]
 categories: ["homelab","cyber101"]
-description: "Guide to building a homelab."
+description: "Learn how to build and scale environments by creating a homelab that simulates a computer system, where you can practice different scenarios and test cybersecurity tools."
 author: molware
 ShowRelated: true
 ---
@@ -27,6 +27,11 @@ For an ideal homelab setup we want to make sure that we can run both desktop and
 
 The foundation for our homelab environment will likely be a single Windows desktop environment, a single linux desktop environment, and a single headless linux environment. This can run on 4GB of memory in theory but performance would not be ideal. I suggest at least 8GB of hardware memory for a nice smooth running homelab. I personally run 16GB minimum on my laptops and 32GB on my homelab virtualization server, but I did start out with 4GB and scaled my way up as I expanded.
 
+### Storage Requirements
+You should ensure that you have adequate storage for your virtual machines. Each Windows VM should be at least 40 GB in size, but yout Linux virtual machines can likely get away with 20GB. Containers can be pretty small, I tend to start with 10 GB and upscale as needed depending on what applications are running in them.
+
+For a type 2 hypervisor I'd recommend having 500 GB total between your OS and the virtual machines you'd like to store. Obviously, the more storage you have the better. For a type 1 hypervisor 256 GB will work but again the more storage the better, but work with what you have available
+
 ### Software
 ---
 Nowadays we have tons of options for virtualization software that will help us to build the foundation for our homelab. These options are generally split into two categories: Type 1 and Type 2 hypervisors.
@@ -50,6 +55,8 @@ Linux KVM, similar to Windows Hyper-V is a virtualization technology that allows
 
 #### Proxmox
 Proxmox is my personal favorite tool to manage my homelab as it's easy-to-use an open source. Proxmox itself is not a hypervisor but a virtuaization administration platform,hosted on Linux debian, that leverages KVM to administer and manage Virtual machines. Since it leverages KVM the VM's created within proxmox run on a type 1 hypervisor platform. Proxmox is installed on a bare metal system just like you would install an Operating System. Proxmox also has built in functionality for managing and administering Linux containters(LXC) which are lightweight linux systems that are significantly less resource intensive than VMs and have unlimited potential in a homelab setup. Proxmox comes packed with a feature-rich web console that allows you to create and administer virtual machines and containers.
+
+If you elect to use Proxmox, make sure you have a disk to install Proxmox on, and a separate disk  to install your virtual machines and containers.
 
 #### ESXi
 ESXi is an enterprise grade type-1 hypervisor developed by VmWare. ESXi needs to be installed on a bare metal system just like installing an OS. After installing you must configure ESXi with an IP address and then you'll be able to administer tyour VM's via web console similar to proxmox. VmWare does have a suite of software that integrates with ESXi so it can get confusing but for the free version you should be looking to [download VMware vSphere Hypervisor 8](https://customerconnect.vmware.com/evalcenter?p=free-esxi8), which is different from VSphere(Paid version). Be sure to register for a license, and then apply your license after installing ESXi otherwise you'll be using the default evaluation license which expires after 60 days.
