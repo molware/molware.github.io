@@ -7,9 +7,11 @@ author: molware
 ShowRelated: true
 ---
 
-Windows 11 is Microsoft's latest Windows Desktop Operating System, built upon the Windows 10 platform. I've mainly been running Windows 10 in my lab environments, but figured it was high-time I virtualized Windows 11 as well. Unfortunately, there are some nuances that make installing Windows 11 in a VM a little bit tricky.
+Windows 11 is Microsoft's latest Windows Desktop Operating System, built upon the Windows 10 platform. I've mainly been running Windows 10 in my lab environments, but figured it was high time I virtualized Windows 11 as well. Unfortunately, some nuances make installing Windows 11 in a VM a little bit tricky.
 
 The first time I tried to install Windows 11 I was met with an error message on the install screen. Unfortunately, Microsoft has a very strict TPM requirement for Windows 11. 
+
+!["Reqs"](/uploads/5/win11_reqs.png)
 
 ### What is TPM?
 
