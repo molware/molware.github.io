@@ -1,4 +1,4 @@
-# molware.org !["Rufus"](/uploads/3/molware.svg)
+# molware.org !["logo"](/piko/exampleSte/content/molware.svg)
 
 This repo hosts my blog site available at https://molware.org.
 
