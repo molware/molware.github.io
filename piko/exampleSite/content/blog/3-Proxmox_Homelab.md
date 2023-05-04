@@ -84,7 +84,9 @@ We'll select our uploaded PfSense iso image and then configure our disks, ensuri
 
 After it's all set up, let's boot our VM and follow the installation instructions to get PF installed on the virtual hard disk. Installation should be quick and will reboot the VM after completion.
 
-When the PfSense VM starts up there will only be one NIC available which is intended. We need to configure the WAN interface with this. It should be the only interface available so either use the auto-detection or enter the interface name that gets presented by PfSense. This will configure a WAN interface on your PfSense firewall that should connect directly to your local network via the Linux bridge. As long as everything is configured properly this interface should have direct access to the Internet. At this point, we will shut off the VM because we need to add additional network interface cards for the other LAN networks we're going to create in our lab.
+When the PfSense VM starts up there will only be one NIC available which is intended. We need to configure the WAN interface with this. It should be the only interface available so either use the auto-detection or enter the interface name that gets presented by PfSense. This will configure a WAN interface on your PfSense firewall that should connect directly to your local network via the Linux bridge. As long as everything is configured properly this interface should have direct access to the Internet. We'll have to repeat this step again when we attach the LAN adapters but I like to do this to make sure I know exactly which adapter is the WAN, and that it's internet-connected properly.
+
+At this point, we will shut off the VM because we need to add additional network interface cards for the other LAN networks we're going to create in our lab.
 
 In the Proxmox UI navigate to your node and select 'Network' from the menu. Here we will add two new Linux bridges, and assign them IP addresses and a /24 CIDR. 
 
@@ -125,10 +127,10 @@ We're setting the IP to 192.168.56.2 since 192.168.56.1 is reserved for the hype
 
 We'll repeat the process for the 2nd LAN network, vtnet, as follows:
 
-- IP: `192.168.56.2`
+- IP: `192.168.57.2`
 - CIDR: `/24`
 - DHCP: `y`
-- DHCP Range: `192.168.56.3 - 192.168.56.254`
+- DHCP Range: `192.168.57.3 - 192.168.57.254`
 
 Now's also a good time to take a snapshot just in case we run into any issues with our PfSense VM in the future.
 
@@ -163,8 +165,8 @@ Since this is our first VM on our LAN, we can use this VM to navigate to our PfS
 
 This will bring us to the PfSense admin page where we can log in with the following credentials:
 
-Username: `admin`
-Password: `admin`
+Username: `admin`  
+Password: `pfsense`
 
 
 !["PfSense Console"](/uploads/3/pfsense_console.png)
@@ -179,7 +181,7 @@ We can now administer and configure our PfSense firewall via the Web console. He
 ## Splunk
 ___
 
-The scope of this section will cover the installation of Splunk, but not the configuration. Select the [Splunk tag](/tags/pfsense) to see posts related to Splunk configuration and search capabilities.
+The scope of this section will cover the installation of Splunk, but not the configuration. Select the [Splunk tag](/tags/splunk) to see posts related to Splunk configuration and search capabilities.
 
 Now to configure and install Splunk we're going to take advantage of Proxmox's ability to create Linux containers. First, we need to download a container image. Let's navigate to the container templates menu and select `Download from URL`. Select any Linux container image you'd like. I'll go ahead and use an Ubuntu image for familiarity.
 
