@@ -2,7 +2,7 @@
 title: Building a Homelab - Pt. 2
 tags: ["homelab","virtualization","proxmox","vmware","virtualbox","pfsense","splunk"]
 categories: ["homelab","cyber101"]
-description: "Looking to build your own homelab? This blog post explores the basic setup, adding a firewall for segmentation and control, and even adding a SIEM for log collection and analysis. With scalability options and the ability to add features like IDS and proxy servers, this is the perfect guide for starting your own homelab."
+description: "Looking to build your own homelab? This blog post explores basic setup, adding a firewall for segmentation and control, and even adding a SIEM for log collection and analysis. With scalability options and the ability to add features like IDS and proxy servers, this is the perfect guide for starting your own homelab."
 author: molware
 ShowRelated: true
 ---

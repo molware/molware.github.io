@@ -2,7 +2,7 @@
 title: Building a Homelab - Pt. 1
 tags: ["homelab","virtualization","proxmox","vmware","virtualbox"]
 categories: ["homelab","cyber101"]
-description: "Learn how to build and scale environments by creating a homelab that simulates a computer system, where you can practice different scenarios and test cybersecurity tools."
+description: "Learn how to build a simple homelab where you can practice different scenarios and test cybersecurity tools and techniques."
 author: molware
 ShowRelated: true
 ---
