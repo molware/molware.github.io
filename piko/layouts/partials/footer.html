@@ -1,15 +1,13 @@
 {{- if not (.Param "hideFooter") }}
 <footer class="text-center">
+    <div>
+        <a href="{{ "https://paypal.me/molware?country.x=US&locale.x=en_US" | absLangURL }}">Buy me a tea <i data-feather="coffee"></i></a>
+    </div>
     {{- if .Site.Copyright }}
     <span>{{ .Site.Copyright | markdownify }} &copy; {{ now.Format "2006"}} {{ .Site.Title }}</span>
     {{- else }}
     <span>&copy; {{ now.Format "2006"}} <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></span>
     {{- end }}
-    <!-- <div>
-        <a href="{{ "/legal/privacy" | absLangURL }}">Privacy Policy</a> 
-        <span>&</span>
-        <a href="{{ "/legal/terms-and-conditions" | absLangURL }}">Terms and Conditions</a>
-    </div> -->
 </footer>
 {{- end }}
 
