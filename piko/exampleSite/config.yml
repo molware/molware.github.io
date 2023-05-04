@@ -155,6 +155,11 @@ menus:
     pre: github
     url: https://github.com/molware
     weight: "60"
+  - name: Twitter
+    title: 
+    pre: twitter
+    url: https://twitter.com/M0lware
+    weight: "70"
   search: # Search page's quick links
   - name: Categories
     title: Categories
