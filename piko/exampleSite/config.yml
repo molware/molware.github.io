@@ -160,6 +160,11 @@ menus:
     pre: twitter
     url: https://twitter.com/M0lware
     weight: "70"
+  - name: RSS
+    title:
+    pre: rss
+    url: https://molware.org/blog/index.xml
+    weight: 80
   search: # Search page's quick links
   - name: Categories
     title: Categories
