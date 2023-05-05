@@ -49,5 +49,5 @@ Depending on the hypervisor you selected my go-to would be to replace any Linux 
 
 Now that we have some design ideas, let's go ahead and actually build a lab!
 
-## [Proxmox Homelab &rarr;](/blog/3-Proxmox_Homelab) 
-## [Virtualbox Homelab &rarr;](/blog/4-Virtualbox_Homelab)
+## [Proxmox Homelab &rarr;](/blog/3-proxmox_homelab/) 
+## [Virtualbox Homelab &rarr;](/blog/4-virtualbox_homelab/)
