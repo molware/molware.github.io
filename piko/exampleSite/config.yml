@@ -42,7 +42,7 @@ params:
   description: Personal Cybersecurity Blog
   math: false
   images:
-  - "/uploads/molware.svg"
+  - "/uploads/server2.jpg"
   label:
     title: m0lware
     text: Welcome to Piko
