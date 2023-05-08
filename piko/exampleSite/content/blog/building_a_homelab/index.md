@@ -81,4 +81,4 @@ The VmWare Player equivalent on MacOSX is [VmWare Fusion Player](https://custome
 
 Now that we understand what our hardware and software requirements are for our homelab, we can go ahead and try to map out what will actually go into our homelab and how to scale it accordingly.
 
-## [See Part 2 &rarr;](/blog/2-building_a_homelab_2) 
+## [See Part 2 &rarr;](/blog/building_a_homelab_2) 
