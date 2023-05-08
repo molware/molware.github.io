@@ -43,7 +43,7 @@ A type 1 hypervisor, often referred to as a bare-metal hypervisor, is a layer of
 Microsoft's Hyper-V is an interesting Type 1 hypervisor as it can simply be enabled on Windows Server and Windows 10 Pro, Ultimate and Enterprise editions. 
 
 You can enable hyper-v in the Windows control panel via "Windows Features."
-!["Hyper-V"](/uploads/1/hyper-v.png)
+!["Hyper-V"](/blog/Building_A_Homelab/hyper-v.png)
 
 If you're using a Windows 10 machine, Hyper-V is not a bad option for a performant type 1 hypervisor.
 

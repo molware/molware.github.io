@@ -11,7 +11,7 @@ Windows 11 is Microsoft's latest Windows Desktop Operating System, built upon th
 
 The first time I tried to install Windows 11 I was met with an error message on the install screen. Unfortunately, Microsoft has a very strict TPM requirement for Windows 11. 
 
-!["Reqs"](/uploads/5/win11_reqs.png)
+!["Reqs"](/blog/installing_windows_11_on_proxmox/win11_reqs.png)
 
 ### What is TPM?
 
@@ -33,7 +33,7 @@ ___
 
 2. **Upload the iso to Proxmox.**
 
-    !["ISO"](/uploads/5/pve_iso_upload.png)
+    !["ISO"](/blog/installing_windows_11_on_proxmox/pve_iso_upload.png)
 
 3. **Create the Windows 11 VM.**
 
@@ -46,7 +46,7 @@ ___
       - TPM Storage: `YOURSTORAGELOCATIONHERE`
     
 
-    !["ISO"](/uploads/5/win11_special.png)
+    !["ISO"](/blog/installing_windows_11_on_proxmox/win11_special.png)
 
     - Disk Size should be at least 64 GB
     - Memory should be at least 4 GB
@@ -54,7 +54,7 @@ ___
 
     The end result should look like this:
 
-    !["ISO"](/uploads/5/windows_vm_settings.png)
+    !["ISO"](/blog/installing_windows_11_on_proxmox/windows_vm_settings.png)
 
 
 4. **Download Windows 11 VirtIO driver, and upload to Proxmox as an iso image.**
@@ -67,44 +67,44 @@ ___
 
     After downloading, upload the drivers as an iso image to Proxmox just like the Windows iso image that was previously uploaded.
 
-    !["Virtio"](/uploads/5/virtio.png)
+    !["Virtio"](/blog/installing_windows_11_on_proxmox/virtio.png)
 
 5. **Attach the VirtIO drivers to the Windows 11 VM as a CD.**
 
     In the settings for your recently created Windows VM, navigate to hardware options, and attach a new CD drive. Select the Virt IO drivers that were just uploaded.
 
-    !["Virtio"](/uploads/5/virtio.png)
+    !["Virtio"](/blog/installing_windows_11_on_proxmox/virtio.png)
 
 5. **Launch the VM and start the Install Process.**
 
     Now that the drivers are attached you can launch the VM and the Windows Install process should start up.
 
-    !["WinInstall"](/uploads/5/windows_install.png)
+    !["WinInstall"](/blog/installing_windows_11_on_proxmox/windows_install.png)
 
 7. **Load the VirtIO drivers.**
 
     When you reach the Windows Setup screen, select the option for Customized Install. 
 
-    !["WinInstall"](/uploads/5/windows_install_custom.png)
+    !["WinInstall"](/blog/installing_windows_11_on_proxmox/windows_install_custom.png)
 
     The target hard disk to install Windows won't be available but that's what the VirtIO driers are for. Select 'Load Driver'  and then select OK and navigate to the VirtIO installation media.
 
-    !["LoadDriver"](/uploads/5/load_driver.png)
+    !["LoadDriver"](/blog/installing_windows_11_on_proxmox/load_driver.png)
 
     It should automatically load all the VirtIO drivers after you select the VirtIO disk. From this list, select the W11 drivers for Windows 11.
     
-    !["WinInstall"](/uploads/5/virtio_win.png)
+    !["WinInstall"](/blog/installing_windows_11_on_proxmox/virtio_win.png)
 
     After the drivers are installed you should now see the virtual disk you created when initializing the VM. Select the disk and hit Next to begin your Windows installation.
 
-    !["WinInstall"](/uploads/5/win11_install_disk.png)
+    !["WinInstall"](/blog/installing_windows_11_on_proxmox/win11_install_disk.png)
 
 
 8. **Complete Installation and Enjoy your Windows 11 VM!**
 
-     !["WinInstall"](/uploads/5/install_complete.png)
+     !["WinInstall"](/blog/installing_windows_11_on_proxmox/install_complete.png)
 
     After the installation is complete, Windows will reboot and you're ready to configure your new Windows 11 VM!
 
-    !["Windows"](/uploads/3/windows_offline.png)
+    !["Windows"](/blog/proxmox_homelab/windows_offline.png)
 

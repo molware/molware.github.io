@@ -40,7 +40,7 @@ ___
 The first thing you want to do is head over to the [Virtualbox download page](https://www.Virtualbox.org/wiki/Downloads), and download the Virtualbox installer for your designated architecture type.
 
 Launch the installer, and follow all the Virtualbox defaults. Make sure to install all the network adapters and winpcap when prompted.
-!["Vbox"](/uploads/4/installer.png)
+!["Vbox"](/blog/virtualbox_homelab/installer.png)
 
 After installation, launch Virtualbox and we can begin creating our virtual lab.
 
@@ -49,56 +49,56 @@ After installation, launch Virtualbox and we can begin creating our virtual lab.
 We'll first be installing our PfSense firewall software, so be sure to grab the PfSense iso linked above. You may need to extract the iso file from the tarball(archive) provided by the PfSense download site.
 
 Launch Virtualbox and hit "New" to create a new virtual machine.
-!["Vbox"](/uploads/4/pfsense_create.png)
+!["Vbox"](/blog/virtualbox_homelab/pfsense_create.png)
 
 Use the following settings to create your VM. I've created this VM with 1GB of RAM, 1, CPU and a 20 GB hard disk.
 
-!["Vbox"](/uploads/4/pfsense_settings.png)
+!["Vbox"](/blog/virtualbox_homelab/pfsense_settings.png)
 
 Once the VM is created you can launch the VM to start installing PfSense to your virtually created hard disk. 
 
-!["Vbox"](/uploads/4/pf_install_screen.png)
+!["Vbox"](/blog/virtualbox_homelab/pf_install_screen.png)
 
 Follow all the defaults ensuring that you hit space bar to select the Virtualbox harddisk you intend to install PfSense on.
 
-!["Vbox"](/uploads/4/install_harddisk.png)
+!["Vbox"](/blog/virtualbox_homelab/install_harddisk.png)
 
 After installation is complete, PfSense will ask you to reboot. If you choose to reboot, PfSense will try to boot the iso again instead of the PfSense that's installed. You should remove the PfSense iso from the VM before rebooting. You can use "Ctrl + Home" to access VM settings. Navigate to Devices --> Optical Drive --> Remove disk.
 
-!["Vbox"](/uploads/4/remove_iso.png)
+!["Vbox"](/blog/virtualbox_homelab/remove_iso.png)
 
 When the PfSense VM starts up there will only be one NIC available which is intended. We need to configure the WAN interface with this. It should be the only interface available so either use the auto-detection or enter the interface name(em0) that gets presented by PfSense. We'll only have one network adapter connected so far, and that's the default NAT adapter. The NAT adapter has the ability to communicate outbound to the Internet which is what we want for our WAN interface.
 As long as everything is configured properly this interface should have direct access to the Internet. We'll have to repeat this step again when we attach the LAN adapters but I like to do this to make sure I know exactly which adapter is the WAN, and that it's internet-connected properly.
 
-!["Vbox"](/uploads/4/wan_config.png)
+!["Vbox"](/blog/virtualbox_homelab/wan_config.png)
 
 We can test our WAN interface by selecting option 7 in the PfSense menu after the WAN is successfully configured. This will allow us to ping an outbound address to test for internet connectivity.
 
-!["Vbox"](/uploads/4/wan_test.png)
+!["Vbox"](/blog/virtualbox_homelab/wan_test.png)
 
 At this point, we will shut off the VM because we need to add additional network interface cards for the other LAN networks we're going to create in our lab.
 
 Enter the VM settings and navigate to the Network menu. On the Adapter 1 tab you'll see that our NAT adapter is the first adapter here, and is attached. 
 
-!["Vbox"](/uploads/4/adapter1.png)
+!["Vbox"](/blog/virtualbox_homelab/adapter1.png)
 
 Let's navigate to the adapter 2 tab, and change the adapter type to "Internal network." Then we'll name our new network adapter so we can connect other VM's to the same network in the future. I chose the default `intnet1`.
 
-!["Vbox"](/uploads/4/adapter2.png)
+!["Vbox"](/blog/virtualbox_homelab/adapter2.png)
 
 We'll repeat the same for adapter 2 but make a unique name for the adapter 2 network adapter name. Make sure to tick enable adapter for each of the network adapters that we've added.
 
-!["Vbox"](/uploads/4/adapter3.png)
+!["Vbox"](/blog/virtualbox_homelab/adapter3.png)
 
 Let's start our PfSense VM back up. Our WAN interface should be configured and working, but now we'll have to configure the two LAN network interfaces. We can do this by selecting option 1, Assign Interfaces in the PfSense menu. This will bring us to a menu where we can assign our newly attached virtual NICs to our PfSense. 
 
-!["PF LANS"](/uploads/4/pfsense_interfaces.png)
+!["PF LANS"](/blog/virtualbox_homelab/pfsense_interfaces.png)
 
 We'll skip VLANs for now, but we'll go ahead and assign our interfaces. We'll select em0 for our WAN as we did previously leaving everything else as default.
 
 We'll select em1 as our first LAN, and em2 as our second LAN. Once done, we'll confirm our options here, and move on to assigning IP addresses for our newly assigned interfaces.
 
-!["PF Interfaces"](/uploads/4/pfsense_lans.png)
+!["PF Interfaces"](/blog/virtualbox_homelab/pfsense_lans.png)
 
 We'll be returned to the PfSense menu and now we'll select option 2 for "Set Interface(s) IP Address. Here we will configure the IP addresses of the two LANs.
 
@@ -110,7 +110,7 @@ For vtnet1 we'll configure the following:
 
 We're setting the IP to 192.168.56.1. You can use any IP but I typically like to make the router/firewall the first IP in the network wherever possible to keep consistency across all the LANs. We're enabling DHCP so that our PfSense firewall will automatically assign IP addresses to any VM's that we connect to the `intnet1` LAN. 
 
-!["Lan 1"](/uploads/4/pfsense_lan1.png)
+!["Lan 1"](/blog/virtualbox_homelab/pfsense_lan1.png)
 
 We'll repeat the process for the 2nd LAN network, em2, as follows:
 
@@ -119,15 +119,15 @@ We'll repeat the process for the 2nd LAN network, em2, as follows:
 - DHCP: `y`
 - DHCP Range: `192.168.57.2 - 192.168.56.254`
 
-!["Lan 2"](/uploads/4/pfsense_lan2.png)
+!["Lan 2"](/blog/virtualbox_homelab/pfsense_lan2.png)
 
 Our WAN and two LAN interfaces should be good to go!
 
-!["Lan 1"](/uploads/4/pfsense_done.png)
+!["Lan 1"](/blog/virtualbox_homelab/pfsense_done.png)
 
 Now's also a good time to take a snapshot just in case we run into any issues with our PfSense VM in the future.
 
-!["snapshot"](/uploads/4/pfsense_snapshot.png)
+!["snapshot"](/blog/virtualbox_homelab/pfsense_snapshot.png)
 
 After that's all said and done, our PfSense configuration is complete! There's a lot more to configure in PfSense but we'll cover that later on. 
 
@@ -138,30 +138,30 @@ ___
 
 For our Windows VM we'll go back to our Virtualbox menu to create a new VM. Assuming you've downloaded the Windows iso from before, we'll load our iso and create a new name for our Virtual Machine. Virtualbox should automatically detect the ISO as Windows, and offers some nifty features like being able to create a user or automatically join the domain. We'll take advantage and create a new user and set our domain to WORKGROUP as we don't have a domain to join at the moment. Sometimes this utility breaks the Windows installer so if you want to do things the old-fashioned way, go back to the previous screen and uncheck "Unattended Install."
 
-!["Windows"](/uploads/4/win_settings1.png)
+!["Windows"](/blog/virtualbox_homelab/win_settings1.png)
 
 For our VM resources, we'll dedicate 4GB of memory, 1 CPU, and an 80GB hard disk. Adjust accordingly, but note that Windows 11 needs some significant resourcing in comparison to its predecessors.
 
-!["Windows"](/uploads/4/win_settings2.png)
+!["Windows"](/blog/virtualbox_homelab/win_settings2.png)
 
 After confirming our settings, before starting our VM let's add the correct network adapter to make sure that Windows connects to our firewall. We can also do this after the installation is complete, but it's not a bad idea to get that situated early.
 
 Navigate to the Windows VM settings, then the Network menu. Change the adapter for adapter 1 to Internal Network and then use the dropdown to select one of the two LANs created previously. For this VM I'll select `intnet1` which maps to LAN1 on our PfSense VM. Save the settings and install Windows.
 
-!["Windows"](/uploads/4/inet1.png)
+!["Windows"](/blog/virtualbox_homelab/inet1.png)
 
 Once the Windows ISO boots up you'll be presented with the installer screen. 
 
-!["Windows"](/uploads/4/win11_install.png)
+!["Windows"](/blog/virtualbox_homelab/win11_install.png)
 
 Follow all the defaults until you reach the "What type of installation do you want?" screen. 
 You should select the second option, "Custom" since we are not upgrading an existing Windows Installation.
 
-!["Windows"](/uploads/4/wind11_install_custom.png)
+!["Windows"](/blog/virtualbox_homelab/wind11_install_custom.png)
 
 The next screen should ask you where you should install Windows, and this should be the Virtualbox Hard Disk you created when you installed Windows. Select the disk and hit "Next" and your Windows should install successfully!
 
-!["Windows"](/uploads/4/win11_disk_install.png)
+!["Windows"](/blog/virtualbox_homelab/win11_disk_install.png)
 
 
 After getting Windows 11 installed we'll launch the VM and follow the installation steps. If you downloaded a Windows 11 Enterprise image you'll need to select the 'domain join' option to create an offline account.
@@ -182,13 +182,13 @@ Username: `admin`
 Password: `pfsense`
 
 
-!["PfSense Console"](/uploads/4/pfsense_console.png)
+!["PfSense Console"](/blog/virtualbox_homelab/pfsense_console.png)
 
 We can now administer and configure our PfSense firewall via the Web console. Here is where we can create firewall rules to segment parts of our lab, install plugins, view logs, and troubleshoot issues with our firewall configuration. 
 
 For more PfSense-specific content please click on the [PfSense tag](/tags/pfsense) at the top of the blog post to learn about some interesting things you can do with it.
 
-!["PfSense Console"](/uploads/4/pfsense_console2.png)
+!["PfSense Console"](/blog/virtualbox_homelab/pfsense_console2.png)
 
  For now, we'll move on to Splunk Installation!
 
@@ -204,25 +204,25 @@ We're going to install Splunk on a Linux server image which is essentially a Lin
 
 After downloading the iso, let's go ahead and create a new Ubuntu Virtual Machine. Virtualbox should automatically detect the image type which helps streamline the installation process. If you have the "Unattended Install" box checked it will allow you to automatically create a user and set the hostname for the VM. 
 
-!["Ubuntu Settings Download"](/uploads/4/ubuntu_settings_1.png)
+!["Ubuntu Settings Download"](/blog/virtualbox_homelab/ubuntu_settings_1.png)
 
 We'll configure this VM with 1GB of RAM, 1 core, and 60 GB of storage since we expect our Splunk instance to collect a lot of data. 
 
-!["Ubuntu Settings Download"](/uploads/4/ubuntu_settings_2.png)
+!["Ubuntu Settings Download"](/blog/virtualbox_homelab/ubuntu_settings_2.png)
 
 After saving, we should go to the VM settings and update the network adapter to be connected to our PfSense LAN via `intnet1`. We should also connect adapter 2 to `intnet2` in order to make sure our Splunk instance has access to both LAN networks to receive logs. This is not necessary as we can manipulate our firewall rules to allow traffic to other subnets, but is my suggestion for those still learning.
 
-!["Ubuntu Settings Download"](/uploads/4/ubuntu_net.png)
+!["Ubuntu Settings Download"](/blog/virtualbox_homelab/ubuntu_net.png)
 
 For our Ubuntu installation, we'll follow all the defaults for configuration. The installation should be pretty straightforward and should only take a few minutes. 
 
-!["Ubuntu Install"](/uploads/4/ubuntu_installer.png)
+!["Ubuntu Install"](/blog/virtualbox_homelab/ubuntu_installer.png)
 
 During the installation, be sure to configure a static IP address fo rboth network adapters so that your has an easy way to navigate to your Splunk console, and forward logs. We don't want to use DHCP here because if our IP address keeps changing our logs won't ship correctly and our console address will keep changing as well.
 
-!["Ubuntu Install"](/uploads/4/static_ip.png)
+!["Ubuntu Install"](/blog/virtualbox_homelab/static_ip.png)
 
-!["Ubuntu Install"](/uploads/4/ip_manual.png)
+!["Ubuntu Install"](/blog/virtualbox_homelab/ip_manual.png)
 
 After the installation is complete Ubuntu will boot up to a command prompt where we can log in with the username and password we created previously. 
 
